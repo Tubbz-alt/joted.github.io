@@ -2,120 +2,33 @@
 <html>
 <head>
 	<title>Joted</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto-Regular:400,300" rel="stylesheet" type="text/css">
-	<script src="js/FileSaver.min.js"></script>
-	<script>
-		window.onbeforeunload = (function () {
-			localStorage.setItem("_joted", document.getElementById("editor").value);
-		});
-
-		window.onload = function() {
-			document.getElementById("editor").value = localStorage.getItem("_joted");
-			document.getElementById("editor").focus();
-		}
-
-		saveContent = function() {
-			var newLine = String.fromCharCode(13, 10);
-			var content = document.getElementById("editor").value;
-			content = content.replace(new RegExp('\\n', 'g'), newLine);
-			var blob = new Blob([content], {type: "text/plain;charset=utf-8"});
-			saveAs(blob, "joted.txt");
-		}
-	</script>
-
-	<style>
-		html, body {
-			height: calc(100% - 48px);
-		}	
-
-		#header {
-			margin: 0;
-			padding: 0 30px;
-			height: 20px;			
-		}
-
-		#header h2 {
-			font-family: Roboto Slab, 'Times New Roman', Times, serif;
-			font-size: 20px;
-			font-weight: bold;
-			font-style: normal;	
-			color: #999;
-			display: block;
-			margin: 5px 0;
-		}
-
-		#header .left {
-			text-align: left;
-			width: 50%;
-			float: left;
-		}
-
-		#header .right {
-			text-align: right;
-			width: 50%;
-			float: left;
-		}
-		
-		#header img {
-			margin: 5px 0;
-			padding: 6px 0px;
-		}
-
-		#wrap {
-			margin: 0;
-			padding: 30px;
-			height: 100%;
-		}
-
-		#editor {
-			font-family: Roboto Slab, 'Times New Roman', Times, serif;
-			font-size: 15px;
-			font-weight: 300;
-			font-style: normal;
-			line-height: 1.4em;
-			font-stretch: semi-expanded;
-
-			-moz-box-sizing: border-box;
-			-webkit-box-sizing: border-box;
-			box-sizing: border-box;
-
-			display: block;
-			width: 100%;
-			height: 100%;
-			margin: 0;
-			padding: 30px;
-			background: #fff;
-			border: 1px solid #eee;
-			overflow-y: auto;
-			overflow-x: hidden;
-			resize: none;
-		}
-
-		#editor:focus {
-    	outline: none !important;
-    	border:1px solid #ccc;
-		}
-
-		.glyph-icon {
-			width:16px;
-			height:16px;
-		}
-	</style>
+	<script src='js/FileSaver.min.js'></script>
+	<script src='js/joted.js'></script>
+	<link href="css/styles.css" rel="stylesheet">
 </head>
-
 <body>
-	<div id="header">
-		<div class="left">
+	<div id='header'>
+		<div class='left'>
 			<h2>Joted</h2>
 		</div>
-		<div class="right">
-			<a href="javascript:saveContent()">
-				<img class="glyph-icon" src="svg/si-glyph-floppy-disk.svg"/>
-			</a>
+		<div class='right'>
+				<a id='aboutButton' class='button action'>About</a>
+			<a id='saveButton' class='button action'>Save</a>
 		</div>
 	</div>
-	<div id="wrap">
-		<textarea name="editor" id="editor" cols="30" rows="10"></textarea>
+	<div id='wrap'>
+		<textarea name='editor' id='editor' cols='30' rows='10'></textarea>
+		<div id='about'>
+				<h4>Why Jotted?
+					<a id='closeButton' class='button close'>x</a>
+				</h4>
+				<p>You can use Jotted to write down quick notes or scribble something within the browser without the need to open any application. </p>			
+				<p>Enter text temporarily stored in the browser's memory and does not transfer or stored to the server. You can retrieve enter text even after closing and reopen the browser or tab.</p>
+				<p>Click <strong>Save</strong> button on top-right corner of the page to save your text on your local hard drive.</p>
+				<p>
+					<a href='https://github.com/joted' target='_blank'>Joted</a>
+				</p>
+			</div>				
 	</div>
 </body>
 </html>
