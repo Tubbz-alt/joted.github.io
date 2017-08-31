@@ -6,7 +6,7 @@ Entered text is temporarily stored in the browser's memory and does not transfer
 
 Click **Save** button on top-right corner of the page to save your text on your local hard drive.
 
-### License
+### Disclaimer
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
